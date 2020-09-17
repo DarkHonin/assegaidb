@@ -1,0 +1,20 @@
+.landingcard {
+  margin: auto;
+  width: 350px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0px 50px 40px -60px black;
+  background: linear-gradient(0deg, white -60%, transparent);
+  border-bottom: gold 3px solid;
+  padding: 1em 0px;
+}
+.landingcard .head {
+  width: 100%;
+}
+.landingcard .head img {
+  width: 300px;
+  height: 300px;
+}
+.landingcard .title {
+  font-size: 3em;
+}

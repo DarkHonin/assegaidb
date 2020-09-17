@@ -1,0 +1,24 @@
+{
+  "name": "assegai",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "sass": "sass --watch sass:public/stylesheets --no-source-map",
+    "jsx": "npx babel --watch react_src --out-dir public/javascript --presets react-app/prod",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "node-sass-middleware": "0.11.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  }
+}

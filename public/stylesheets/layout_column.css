@@ -1,0 +1,22 @@
+.layout.column .c1, .layout.column .c2, .layout.column .c3 {
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .layout.column .c1 {
+    width: 60%;
+    order: 2;
+  }
+  .layout.column .c2 {
+    width: 40%;
+    order: 1;
+  }
+  .layout.column .c3 {
+    width: 100%;
+    order: 3;
+  }
+}
+@media (min-width: 800px) {
+  .layout.column .c2, .layout.column .c3 {
+    width: 20%;
+  }
+}

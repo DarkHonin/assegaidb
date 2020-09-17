@@ -1,0 +1,90 @@
+.navbar
+	height: 47px
+	display: flex
+	overflow: hidden
+	justify-content: space-between
+	box-shadow: 0px 0px 40px 0px rgba(0,0,0, .1)
+	border-bottom: 3px solid gold
+	background-color: white
+	z-index: 9
+	position: sticky
+	top: 0px
+	order: 2
+
+	.nav
+		transition: border .2s, background-color 0.2s, width 0.5s, height 0.5s
+		border-top: 3px white solid
+		display: flex
+		height: 100%
+		max-height: 44px
+		margin: auto
+		align-items: center
+		width: 150px
+		background: white
+		box-shadow: 0px 0px 4px 1px rgba(0,0,0, .1)
+		overflow: hidden
+		text-decoration: none
+		span
+			display: block
+			margin: auto
+		&:hover, &.active
+			border-top: 3px gold solid
+			background-color: rgb(242 242 242)
+
+
+	.logo
+		justify-self: flex-start
+		margin-left: 0px
+		align-items: center
+		.title
+			display: block
+			margin: auto
+		&.active
+			width: 0px
+
+	.subnav
+		text-align: center
+		margin: auto
+		height: 100%
+		display: flex
+		margin-right: 1em
+		justify-content: flex-end
+		align-content: center
+		transition: width 0.5s
+	.burger
+		width: 0px
+		transition: width 0.2s
+		height: 100%
+	.pageLabel
+		width: 150px
+		height: 47px
+		position: relative
+		display: flex
+
+@media (max-width: 650px)
+	.navbar
+		overflow: visible
+		order: 1
+		.burger
+			width: 50px
+		.pageLabel:before
+			margin: auto
+			content: attr(_activetab)
+			display: block
+
+		.subnav
+			margin: 0px
+			flex-direction: column
+			right: 0px
+			top: 50px
+			width: 0%
+			position: fixed
+			height: fit-content
+			.nav
+				height: 47px
+				width: 100%
+				&.active
+					border: none
+					height: 0px
+			&.open
+				width: 100%

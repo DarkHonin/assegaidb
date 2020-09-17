@@ -1,0 +1,24 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout {
+  min-height: calc(100vh - 50px);
+  background: URL("https://via.placeholder.com/500/0f0f0f/f0f0f0/?text=layout");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  order: 2;
+  padding-top: 50px;
+}
+
+.layout#assegai {
+  padding-top: 0px;
+}

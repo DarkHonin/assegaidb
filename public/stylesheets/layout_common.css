@@ -1,0 +1,9 @@
+.layout {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: white;
+}
+
+*[class*=c] {
+  min-height: 20px;
+}
