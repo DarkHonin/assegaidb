@@ -8,8 +8,12 @@ html
     script(crossorigin src="https://unpkg.com/react@16/umd/react.development.js")
     script(crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js")
     meta( name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="icon"
+      type="image/png"
+      href="/images/logo.png")
   body
     #app
+    block error
     block landing
     include includes/navbar.pug
     div.layout#about about
@@ -17,3 +21,4 @@ html
     div.layout#contact contact
   script(src="/javascript/rjsa.js")
   script(src="/javascript/burger.js")
+  script(src="/javascript/layout.js")

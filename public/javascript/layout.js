@@ -6,41 +6,63 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// use strict
-var scrollEventLock = false;
+var Layout = function (_React$Component) {
+	_inherits(Layout, _React$Component);
 
-var App = function (_React$Component) {
-	_inherits(App, _React$Component);
+	function Layout(props) {
+		_classCallCheck(this, Layout);
 
-	function App(props) {
-		_classCallCheck(this, App);
+		var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
 
-		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-		window.addEventListener("hashchange", _this.hashChange.bind());
+		console.log(props);
+		_this.owner = props.owner;
+		_this.elem = document.querySelector("#" + _this.owner);
+		_this.handleScroll = _this.handleScroll.bind(_this);
 		return _this;
 	}
 
-	_createClass(App, [{
-		key: "hashChange",
-		value: function hashChange(e) {
-			var c = document.createElement("a");
-			c.href = window.location.hash;
-
-			document.querySelector(".pageLabel").setAttribute("_activetab", c.hash);
-			document.querySelectorAll(".nav.active").forEach(function (e) {
-				e.classList.remove("active");
-			});
-			document.querySelector("[href='" + c.hash + "']").classList.add("active");
+	_createClass(Layout, [{
+		key: "handleScroll",
+		value: function handleScroll(e) {
+			if (this.elem && this.elem.offsetTop <= window.pageYOffset) {
+				e.stopImmediatePropagation();
+				if (history.pushState) {
+					history.pushState(null, null, "#" + this.owner);
+				} else {
+					location.hash = "#" + this.owner;
+				}
+				return true;
+			}
+			return false;
 		}
 	}, {
 		key: "render",
 		value: function render() {
-			return React.createElement("div", { className: "app" });
+			return "";
+		}
+	}, {
+		key: "componentDidMount",
+		value: function componentDidMount() {
+			var fn = this.handleScroll;
+			var timeout;
+			window.addEventListener("scroll", function (e) {
+
+				if (!timeout) {
+					clearTimeout(timeout);
+					timeout = setTimeout(function () {
+						clearTimeout(timeout);timeout = undefined;if (fn(e)) window.dispatchEvent(new Event("hashchange"));
+					}, 500);
+				}
+			});
 		}
 	}]);
 
-	return App;
+	return Layout;
 }(React.Component);
 
-ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+document.querySelectorAll(".layout").forEach(function (e) {
+	var c = e.innerHTML;
+	var id = e.getAttribute("id");
+	ReactDOM.render(React.createElement(Layout, { owner: id }), e);
+	e.innerHTML += c;
+});
