@@ -9,22 +9,18 @@ body {
 }
 
 .layout {
-  min-height: calc(100vh - 50px);
+  min-height: 100vh;
   background: URL("https://via.placeholder.com/500/0f0f0f/f0f0f0/?text=layout");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
   display: flex;
   order: 2;
-  padding-top: 50px;
 }
 
 .layout#assegai {
   padding-top: 0px;
   background-image: URL("/images/9_5_2020.jpg");
   background-attachment: fixed;
-}
-
-.layout#about {
-  background-image: URL("/images/2_10_2015.jpg");
 }

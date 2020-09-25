@@ -15,10 +15,8 @@ var App = function (_React$Component) {
 	function App(props) {
 		_classCallCheck(this, App);
 
-		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-		window.addEventListener("hashchange", _this.hashChange.bind());
-		return _this;
+		return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+		// window.addEventListener("hashchange", this.hashChange.bind())
 	}
 
 	_createClass(App, [{

@@ -1,9 +1,14 @@
-# 18/9/2020 ~ minor cospetics
+# 25/9/2020 ~ About page v1
+	- Navbar responds better to scroll events
+	- Nav dropdown now extends up when its at the bottom of the screen
+	- About page first draft
+
+# 18/9/2020 ~ minor cosmetics
 	- attempted scroll response
 	- added some image assets
 	- created vector image for logo
 	- added faveicon
-	- added changelog view
+	- added changelog view '/changelog'
 
 -------
 

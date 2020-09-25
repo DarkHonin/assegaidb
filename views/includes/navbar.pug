@@ -1,13 +1,12 @@
 div.navbar
-	a.nav.logo(href="#assegai")
-		img(src="https://via.placeholder.com/50")
+	a.nav.logo(href="#" layout="assegai")
+		img(src="/images/logo.svg" width="50px" height="50px")
 		span.title Assegai
-	div.pageLabel(_activetab="")
 	.subnav
-		a.nav(href="#about")
+		a.nav(href="#about" layout="about")
 			span About
-		a.nav(href="#galery")
+		a.nav(href="#galery" layout="galery")
 			span Gallery
-		a.nav(href="#contact")
+		a.nav(href="#contact" layout="contact")
 			span Contact
 	#burger

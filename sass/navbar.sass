@@ -9,6 +9,7 @@
 	z-index: 9
 	position: sticky
 	top: 0px
+	bottom: 0px
 	order: 2
 
 	.nav
@@ -61,24 +62,24 @@
 		position: relative
 		display: flex
 
-@media (max-width: 650px)
+@media (max-width: 800px)
 	.navbar
 		overflow: visible
-		order: 1
+		// order: 1
 		.burger
 			width: 50px
 		.pageLabel:before
 			margin: auto
 			content: attr(_activetab)
 			display: block
-
+		.active + .subnav
+			align-self: flex-end
 		.subnav
 			margin: 0px
 			flex-direction: column
 			right: 0px
 			top: 50px
 			width: 0%
-			position: fixed
 			height: fit-content
 			.nav
 				height: 47px
@@ -87,4 +88,4 @@
 					border: none
 					height: 0px
 			&.open
-				width: 100%
+				width: 50%

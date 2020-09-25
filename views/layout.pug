@@ -5,6 +5,7 @@ html
     link(rel='stylesheet', href='/stylesheets/page.css')
     link(rel='stylesheet', href='/stylesheets/navbar.css')
     link(rel='stylesheet', href='/stylesheets/landingcard.css')
+    link(rel='stylesheet', href='/stylesheets/about.css')
     script(crossorigin src="https://unpkg.com/react@16/umd/react.development.js")
     script(crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js")
     meta( name="viewport" content="width=device-width, initial-scale=1")
@@ -16,7 +17,8 @@ html
     block error
     block landing
     include includes/navbar.pug
-    div.layout#about about
+    include includes/about.pug
+
     div.layout#galery galery
     div.layout#contact contact
   script(src="/javascript/rjsa.js")

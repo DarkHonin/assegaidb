@@ -14,26 +14,27 @@ var Layout = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
 
-		console.log(props);
 		_this.owner = props.owner;
 		_this.elem = document.querySelector("#" + _this.owner);
 		_this.handleScroll = _this.handleScroll.bind(_this);
+		_this.nav = document.querySelector(".nav[layout='" + _this.owner + "']");
 		return _this;
 	}
 
 	_createClass(Layout, [{
 		key: "handleScroll",
 		value: function handleScroll(e) {
-			if (this.elem && this.elem.offsetTop <= window.pageYOffset) {
-				e.stopImmediatePropagation();
-				if (history.pushState) {
-					history.pushState(null, null, "#" + this.owner);
-				} else {
-					location.hash = "#" + this.owner;
-				}
+			var dist = this.elem.offsetTop - window.pageYOffset;
+			if (this.elem && dist >= 0 && dist <= 100) {
+				document.querySelectorAll(".nav").forEach(function (e) {
+					return e.classList.remove("active");
+				});
+				this.nav.classList.add("active");
 				return true;
+			} else {
+
+				return false;
 			}
-			return false;
 		}
 	}, {
 		key: "render",
@@ -43,17 +44,8 @@ var Layout = function (_React$Component) {
 	}, {
 		key: "componentDidMount",
 		value: function componentDidMount() {
-			var fn = this.handleScroll;
-			var timeout;
-			window.addEventListener("scroll", function (e) {
-
-				if (!timeout) {
-					clearTimeout(timeout);
-					timeout = setTimeout(function () {
-						clearTimeout(timeout);timeout = undefined;if (fn(e)) window.dispatchEvent(new Event("hashchange"));
-					}, 500);
-				}
-			});
+			this.handleScroll();
+			window.addEventListener("scroll", this.handleScroll);
 		}
 	}]);
 

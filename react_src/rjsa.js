@@ -4,7 +4,7 @@ var scrollEventLock = false
 class App extends React.Component{
 	constructor(props){
 		super(props)
-		window.addEventListener("hashchange", this.hashChange.bind())
+		// window.addEventListener("hashchange", this.hashChange.bind())
 	}
 
 	hashChange(e){

@@ -3,24 +3,22 @@
 class Layout extends React.Component{
 	constructor(props){
 		super(props)
-		console.log(props)
 		this.owner=props.owner
 		this.elem = document.querySelector(`#${this.owner}`)
 		this.handleScroll = this.handleScroll.bind(this);
+		this.nav = document.querySelector(`.nav[layout='${this.owner}']`)
 	}
 
 	handleScroll(e) {
-		if(this.elem && this.elem.offsetTop <= window.pageYOffset) {
-			e.stopImmediatePropagation()
-			if(history.pushState) {
-				history.pushState(null, null, "#" + this.owner);
-			}
-			else {
-				location.hash = "#" + this.owner;
-			}
+		var dist = this.elem.offsetTop - window.pageYOffset
+		if(this.elem && dist >= 0 && dist <= 100) {
+			document.querySelectorAll(".nav").forEach(e=>e.classList.remove("active"))
+			this.nav.classList.add("active")
 			return true
+		}else{
+
+			return false
 		}
-		return false
 	  }
 
 	render(){
@@ -28,15 +26,8 @@ class Layout extends React.Component{
 	}
 
 	componentDidMount() {
-		var fn = this.handleScroll
-		var timeout;
-		window.addEventListener("scroll", (e)=>{
-
-			if(!timeout){
-				clearTimeout(timeout)
-				timeout = setTimeout(()=>{clearTimeout(timeout); timeout = undefined; if(fn(e)) window.dispatchEvent(new Event("hashchange"));}, 500)
-			}
-		});
+		this.handleScroll()
+		window.addEventListener("scroll", this.handleScroll);
 	}
 
 
