@@ -5,7 +5,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'AssegaiDB' });
+  console.log(process.env)
+  res.render('index', { title: 'Assegai-Inno', debug : process.env.DEBUG || false } );
 });
 
 router.get('/changelog', (req, res)=>{

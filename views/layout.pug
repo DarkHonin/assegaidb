@@ -6,6 +6,9 @@ html
     link(rel='stylesheet', href='/stylesheets/navbar.css')
     link(rel='stylesheet', href='/stylesheets/landingcard.css')
     link(rel='stylesheet', href='/stylesheets/about.css')
+    link(rel='stylesheet', href='/stylesheets/fonts/fonts.css')
+    link(rel='stylesheet', href='/stylesheets/fontawesome/css/all.css')
+    link(href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&family=Libre+Baskerville:wght@700&family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet")
     script(crossorigin src="https://unpkg.com/react@16/umd/react.development.js")
     script(crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js")
     meta( name="viewport" content="width=device-width, initial-scale=1")
@@ -13,14 +16,18 @@ html
       type="image/png"
       href="/images/logo.png")
   body
-    #app
-    block error
-    block landing
-    include includes/navbar.pug
-    include includes/about.pug
-
-    div.layout#galery galery
-    div.layout#contact contact
+      #app
+      block error
+      block landing
+      include includes/navbar.pug
+      include includes/about.pug
+      div.layout#galery galery
+      div.layout#contact contact
+      if debug
+        #debug
+        
   script(src="/javascript/rjsa.js")
   script(src="/javascript/burger.js")
   script(src="/javascript/layout.js")
+  if debug
+    script(src="/javascript/debug.js" type="module")

@@ -6,12 +6,16 @@
     "start": "node ./bin/www",
     "sass": "sass --watch sass:public/stylesheets --no-source-map",
     "jsx": "npx babel --watch react_src --out-dir public/javascript --presets react-app/prod",
-    "dev": "nodemon"
+    "dev": "heroku local web -e .env.test -f dev.procfile"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "express-sass": "^1.0.0",
     "http-errors": "~1.6.3",
     "markdown": "^0.5.0",
     "morgan": "~1.9.1",
